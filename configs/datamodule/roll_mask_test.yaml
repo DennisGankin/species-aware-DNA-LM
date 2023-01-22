@@ -1,0 +1,30 @@
+_target_: src.datamodules.motif_datamodule.MotifDataModule
+###Just for debugging, test and train set is the same one!
+
+# no recursion, becaus dataset will be instantiated several times in datamodule
+_recursive_: False
+dataset:
+  _target_: src.datamodules.dna_datasets.CSVDataset
+
+data:
+  train_file: ${data_dir}Scer_half_life.csv
+  test_file: ${data_dir}Scer_half_life.csv
+  seq_position: "UTR3_seq"
+
+transforms: 
+  _target_: src.datamodules.sequence_encoders.SequenceDataEncoder
+  seq_len: 300
+  total_len: 303 # length with padding
+  mask_rate: 0.1
+
+test_transforms: 
+  _target_: src.datamodules.sequence_encoders.RollingMasker
+  mask_stride: 50
+  frame: 0
+
+batched_dataset: True  # if batched dataset set batch size to 1
+batch_size: 1
+train_val_test_split: [55_000, 5_000, 10_000]
+num_workers: 16
+pin_memory: True
+persistent_workers: True

@@ -1,0 +1,14 @@
+_target_: src.models.motif_module.MotifLitModule
+lr: 0.001
+weight_decay: 0.0005
+
+net:
+  _target_: src.models.networks.simple_cnn.Simple_CNN
+  num_channels: 1024
+  kernel_size_1: 15
+  kernel_size_2: 15
+  #input_size: 784
+  #lin1_size: 256
+  #lin2_size: 256
+  #lin3_size: 256
+  #output_size: 10

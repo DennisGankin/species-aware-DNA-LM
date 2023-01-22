@@ -1,0 +1,21 @@
+_target_: src.models.motif_module.MotifLitModule
+lr: 0.001
+weight_decay: 0.0005
+
+net:
+  _target_: src.models.networks.dss_net.DSSNet
+  conv_layer1:
+    in_channels: 5
+    out_channels: 128
+    padding: 3
+    kernel_size: 7
+  conv_layer2: 
+    in_channels: 128
+    out_channels: 5
+    padding: 3
+    kernel_size: 7
+  dss_layer1:
+    size: 128
+  dss_layer2:
+    size: 128 
+  dropout: 0.5

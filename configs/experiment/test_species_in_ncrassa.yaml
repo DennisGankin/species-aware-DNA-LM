@@ -1,0 +1,21 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      # run sweep with these species labels
+      datamodule.data.species_test_label: candida_glabrata, neurospora_crassa
+
+defaults:
+  - override /datamodule: roll_mask_test_species
+  - override /model: species_dss
+
+# Using downstream sequences assembled from ensembl 53 data
+datamodule:
+  data:
+    seq_position: three_prime_region
+    train_file: ${data_dir}neurospora_crassa_transcripts_600_upstream_300_downstream.csv # only as placeholder
+    test_file: ${data_dir}neurospora_crassa_transcripts_600_upstream_300_downstream.csv
+
+
+ckpt_path: ${spec_aware_ssm}
+

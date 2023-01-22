@@ -1,0 +1,21 @@
+# @package _global_
+hydra:
+  sweep:
+    subdir: ${datamodule.data.species_test_label}
+  sweeper:
+    params:
+      # run sweep with these species labels, run with --multirun flag
+      datamodule.data.species_test_label: candida_glabrata, neurospora_crassa
+
+defaults:
+  - override /datamodule: roll_mask_test_species
+  - override /model: species_dss_weights # to get embeddings too
+
+# Useing Jun's complete SCer data set
+datamodule:
+  data:
+    train_file: ${data_dir}Scer_half_life.csv
+    test_file: ${data_dir}Scer_half_life.csv
+
+
+ckpt_path: ${spec_aware_ssm}

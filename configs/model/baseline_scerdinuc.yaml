@@ -1,0 +1,9 @@
+_target_: src.models.motif_module.MotifLitModule
+lr: 0.0001
+weight_decay: 0.0005
+
+net:
+  #_target_: src.models.networks.baseline.ClassDist
+  _target_: src.models.networks.baseline.DiNucDist
+  dinuc_for:  'scer' # scer, spombe, ncrassa
+  #dist: [0.0, 0.0, 0.0, 1.0, 0.0]

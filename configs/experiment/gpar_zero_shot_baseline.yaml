@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: roll_mask_test
+  - override /model: motif_s4_resnet
+
+# Use gpar + shuffled
+datamodule:
+  data:
+    train_file: ${data_dir}gpar_clip_downstream.csv #placeholder for testing
+    test_file: ${data_dir}gpar_clip_downstream.csv
+    seq_position: sequence
+
+
+ckpt_path: ${ssm}

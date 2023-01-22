@@ -1,0 +1,21 @@
+
+_target_: pytorch_lightning.Trainer
+
+gpus: 4
+
+min_epochs: 1
+max_epochs: 50
+
+# number of validation steps to execute at the beginning of the training
+# num_sanity_val_steps: 0
+
+# ckpt path
+resume_from_checkpoint: null
+
+#log_every_n_steps: 250
+
+# precision: bf16
+
+strategy: ddp_find_unused_parameters_false
+
+sync_batchnorm: True

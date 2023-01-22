@@ -1,0 +1,5 @@
+_target_: src.models.baseline.conservation_model.ConservationModel
+
+
+halflife_df_path: ${data_dir}Scer_half_life.csv
+conservation_track_path: ${data_dir}/baselines/sacCer3.phastCons7way.bw

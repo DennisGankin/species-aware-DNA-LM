@@ -1,0 +1,46 @@
+# @package _global_
+
+hydra:
+  job:
+    # Disable changing of working directory.
+    # See https://hydra.cc/docs/tutorials/basic/running_your_app/working_directory/#disable-changing-current-working-dir-to-jobs-output-dir
+    chdir: True
+
+# specify here default evaluation configuration
+defaults:
+  - _self_
+  - datamodule: roll_mask_test.yaml
+  - model: motif_s4_resnet.yaml
+  - callbacks: default.yaml
+  - logger: null # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
+  - trainer: default.yaml
+  #- log_dir: default.yaml
+
+  - experiment: null
+
+  # enable color logging
+  - override hydra/hydra_logging: colorlog
+  - override hydra/job_logging: colorlog
+
+original_work_dir: ${hydra:runtime.cwd}
+
+data_dir: ${original_work_dir}/data/
+
+print_config: True
+
+ignore_warnings: True
+
+seed: null
+
+name: "default"
+
+
+# checkpoint path 
+# can use path or predifined vars: ${ssm}
+# ${spec_aware_ssm}
+ssm: ${data_dir}models/ssm.ckpt
+spec_aware_ssm: ${data_dir}models/species_aware_ssm.ckpt
+
+ckpt_path: ${spec_aware_ssm}
+# passing checkpoint path is necessary
+

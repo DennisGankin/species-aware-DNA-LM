@@ -1,0 +1,19 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      # run sweep with different baselines, run with --multirun
+      model: motif_s4_resnet, baseline_scerdinuc # runs species-agnostic SSM and dinucleotide model
+
+defaults:
+  - override /datamodule: roll_mask_test
+
+# Use Jun's complete SCer data set
+datamodule:
+  data:
+    train_file: ${data_dir}Scer_half_life.csv
+    test_file: ${data_dir}Scer_half_life.csv
+
+
+# species agnostic SSM
+ckpt_path: ${ssm}

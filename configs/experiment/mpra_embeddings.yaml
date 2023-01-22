@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: roll_mask_test_species
+  - override /model: species_dss_weights
+
+# Use gpar + shuffled
+datamodule:
+  data:
+    train_file: ${data_dir}segal_2015.csv
+    test_file: ${data_dir}segal_2015.csv
+    seq_position: sequence
+
+
+ckpt_path: ${spec_aware_ssm}

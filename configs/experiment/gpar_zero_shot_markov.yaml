@@ -1,0 +1,17 @@
+# @package _global_
+
+hydra:
+  sweep:
+    subdir: ${model.order}_${model.bidirectional}
+  sweeper:
+    params:
+      # run sweep with these species labels
+      model.order: range(0,6)
+      model.bidirectional: true
+
+defaults:
+  - override /model: baseline_markov
+
+# Use gpar + shuffled
+model:
+    halflife_df_path: ${data_dir}gpar_clip_downstream.csv

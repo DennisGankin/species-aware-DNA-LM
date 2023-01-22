@@ -1,0 +1,3 @@
+_target_: src.models.baseline.alignment_model.AlignmentModel
+halflife_df_path: ${data_dir}Scer_half_life.csv
+alignment_base_path: ${data_dir}/baselines/MAF

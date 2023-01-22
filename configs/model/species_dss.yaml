@@ -1,0 +1,19 @@
+_target_: src.models.motif_module_species.MotifLitModule
+lr: 0.0001
+weight_decay: 0.0005
+
+net:
+  _target_: src.models.networks.spec_dss.DSSResNet
+  d_input: 5
+  d_output: 5
+  d_model: 128
+  n_layers: 4 
+  dropout: 0.1
+  embed_before: True
+  #kernel_size: 15
+  #resnet_kernel_size: 21
+  species_encoder:
+    _target_: src.models.networks.spec_dss.SpecAdd
+    embed: True
+    encoder: label
+    d_model: 128

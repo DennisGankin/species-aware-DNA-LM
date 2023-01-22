@@ -1,0 +1,13 @@
+# @package _global_
+hydra:
+  sweep:
+    subdir: all_${model.order}_bi
+  sweeper:
+    params:
+      # run sweep with these species labels, run with --multirun
+      model.order: range(0,6)
+      model.bidirectional: true
+
+
+defaults:
+  - override /model: baseline_markov

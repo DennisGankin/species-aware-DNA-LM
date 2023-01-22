@@ -1,0 +1,8 @@
+_target_: src.models.baseline.markov_model.MarkovModel
+
+
+halflife_df_path: ${data_dir}Scer_half_life.csv 
+markov_matrix_path: ${data_dir}baselines/markov_bimatrix_all.npy
+order: 3
+bidirectional: true
+
