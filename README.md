@@ -117,5 +117,5 @@ The configuration logic and file structure is loosely adapted from this [tempate
 ## Reproducing plots
 
 The plotting functions can be found in the ``notebooks/`` folder.
-The notebooks read the results saved in ```data/results/`` and compute the plots and comparisons used for the paper figures.
+The notebooks read the results saved in ``data/results/`` and compute the plots and comparisons used for the paper figures.
 
