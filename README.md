@@ -20,8 +20,7 @@ conda activate spade
 
 ## Data
 
-As the data is too large for GitHub, please download it from (TODO link will follow) into the ``data/`` directory. 
-The directory already contains model checkpoints and data for baseline Markov models.
+As the data is too large for GitHub, please download it from https://zenodo.org/record/7569953 into the ``data/`` directory. 
 The download provides model checkpoints, baselines models, evaluation results and datasets used for training, testing and downstream tasks.
 
 ## Model
